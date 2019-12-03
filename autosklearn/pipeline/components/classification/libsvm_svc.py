@@ -138,7 +138,8 @@ class LibSVM_SVC(AutoSklearnClassificationAlgorithm):
         tol = UniformFloatHyperparameter("tol", 1e-5, 1e-1, default_value=1e-3,
                                          log=True)
         # cache size is not a hyperparameter, but an argument to the program!
-        max_iter = UnParametrizedHyperparameter("max_iter", -1)
+        # UPDATE..
+        max_iter = UnParametrizedHyperparameter("max_iter", 2000)
 
         cs = ConfigurationSpace()
         cs.add_hyperparameters([C, kernel, degree, gamma, coef0, shrinking,
