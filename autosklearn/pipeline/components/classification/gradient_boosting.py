@@ -119,8 +119,9 @@ class GradientBoostingClassifier(AutoSklearnClassificationAlgorithm):
         loss = Constant("loss", "auto")
         learning_rate = UniformFloatHyperparameter(
             name="learning_rate", lower=0.01, upper=1, default_value=0.1, log=True)
+        # UPDATE: 512 to 256.
         max_iter = UniformIntegerHyperparameter(
-            "max_iter", 32, 512, default_value=100)
+            "max_iter", 32, 256, default_value=100)
         min_samples_leaf = UniformIntegerHyperparameter(
             name="min_samples_leaf", lower=1, upper=200, default_value=20, log=True)
         # UPDATE: none to 10.
