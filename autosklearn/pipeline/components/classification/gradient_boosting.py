@@ -123,8 +123,9 @@ class GradientBoostingClassifier(AutoSklearnClassificationAlgorithm):
             "max_iter", 32, 512, default_value=100)
         min_samples_leaf = UniformIntegerHyperparameter(
             name="min_samples_leaf", lower=1, upper=200, default_value=20, log=True)
+        # UPDATE: none to 10.
         max_depth = UnParametrizedHyperparameter(
-            name="max_depth", value="None")
+            name="max_depth", value="10")
         max_leaf_nodes = UniformIntegerHyperparameter(
             name="max_leaf_nodes", lower=3, upper=2047, default_value=31, log=True)
         max_bins = Constant("max_bins", 256)
