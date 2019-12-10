@@ -132,29 +132,13 @@ class GradientBoostingClassifier(AutoSklearnClassificationAlgorithm):
         max_bins = Constant("max_bins", 256)
         l2_regularization = UniformFloatHyperparameter(
             name="l2_regularization", lower=1E-10, upper=1, default_value=1E-10, log=True)
-        # early_stop = CategoricalHyperparameter(
-        #     name="early_stop", choices=["off", "train", "valid"], default_value="off")
         early_stop = Constant("early_stop", "off")
         tol = UnParametrizedHyperparameter(
             name="tol", value=1e-7)
         scoring = UnParametrizedHyperparameter(
             name="scoring", value="loss")
-        n_iter_no_change = UniformIntegerHyperparameter(
-            name="n_iter_no_change", lower=1, upper=20, default_value=10)
-        validation_fraction = UniformFloatHyperparameter(
-            name="validation_fraction", lower=0.01, upper=0.4, default_value=0.1)
 
         cs.add_hyperparameters([loss, learning_rate, max_iter, min_samples_leaf,
                                 max_depth, max_leaf_nodes, max_bins, l2_regularization,
-                                early_stop, tol, scoring, n_iter_no_change,
-                                validation_fraction])
-
-        n_iter_no_change_cond = InCondition(
-            n_iter_no_change, early_stop, ["valid", "train"])
-        validation_fraction_cond = EqualsCondition(
-            validation_fraction, early_stop, "valid")
-
-        cs.add_conditions([n_iter_no_change_cond, validation_fraction_cond])
-
+                                early_stop, tol, scoring])
         return cs
-
