@@ -297,10 +297,8 @@ class SimpleClassificationPipeline(ClassifierMixin, BasePipeline):
              ["imputation", Imputation()],
              ["variance_threshold", VarianceThreshold()],
              ["rescaling",
-              rescaling_components.RescalingChoice(default_dataset_properties)]
-             ])
-        # UPDATE: remove balancing.
-        # ["balancing", Balancing()]
+              rescaling_components.RescalingChoice(default_dataset_properties)],
+             ["balancing", Balancing()]])
 
         # Add the preprocessing component
         steps.append(['preprocessor',
