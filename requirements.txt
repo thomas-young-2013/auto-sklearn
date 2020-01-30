@@ -5,8 +5,6 @@ Cython
 numpy>=1.9.0
 scipy>=0.14.1
 
-scikit-learn>=0.21.0,<0.22
-
 lockfile
 joblib
 psutil
@@ -17,4 +15,6 @@ pandas
 ConfigSpace>=0.4.0,<0.5
 pynisher>=0.4.2
 pyrfr>=0.7,<0.9
+
+scikit-learn>=0.22.1
 smac==0.8
