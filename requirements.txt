@@ -17,4 +17,4 @@ pynisher>=0.4.2
 pyrfr>=0.7,<0.9
 
 scikit-learn>=0.22.1
-smac==0.8
+git+https://git@github.com/thomas-young-2013/SMAC3.git@iter_smac
