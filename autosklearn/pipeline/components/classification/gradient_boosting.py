@@ -119,18 +119,17 @@ class GradientBoostingClassifier(AutoSklearnClassificationAlgorithm):
         loss = Constant("loss", "auto")
         learning_rate = UniformFloatHyperparameter(
             name="learning_rate", lower=0.01, upper=1, default_value=0.1, log=True)
-        # UPDATE: 512 to 256.
-        # max_iter = UniformIntegerHyperparameter(
-        #     "max_iter", 32, 128, default_value=100)
-        max_iter = Constant('max_iter', 100)
+        max_iter = UniformIntegerHyperparameter(
+            "max_iter", 32, 128, default_value=100)
+        # max_iter = Constant('max_iter', 100)
         min_samples_leaf = UniformIntegerHyperparameter(
-            name="min_samples_leaf", lower=1, upper=100, default_value=20, log=True)
+            name="min_samples_leaf", lower=1, upper=32, default_value=20, log=True)
         # UPDATE: none to 8.
         max_depth = UnParametrizedHyperparameter(
-            name="max_depth", value="9")
+            name="max_depth", value="7")
         max_leaf_nodes = UniformIntegerHyperparameter(
-            name="max_leaf_nodes", lower=3, upper=512, default_value=31, log=True)
-        max_bins = Constant("max_bins", 256)
+            name="max_leaf_nodes", lower=3, upper=128, default_value=31, log=True)
+        max_bins = Constant("max_bins", 255)
         l2_regularization = UniformFloatHyperparameter(
             name="l2_regularization", lower=1E-10, upper=1, default_value=1E-10, log=True)
         early_stop = CategoricalHyperparameter(
